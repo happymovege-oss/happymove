@@ -1,0 +1,615 @@
+/* ==========================================================================
+   Débarras — styles propres à cette page
+   Charge après ../style.css : réutilise --dark, --white, --text-secondary,
+   --green-forest, --green-light, --radius, --shadow, --transition.
+   Couleur dominante = terracotta (cohérente avec .service-debarras sur la home).
+   ========================================================================== */
+
+:root {
+  --deb-terracotta: #C1765A;
+  --deb-terracotta-dark: #8B3A3A;
+  --deb-beige: #FFF5F0;
+}
+
+/* ===== HERO ===== */
+.deb-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  overflow: hidden;
+}
+
+.deb-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.deb-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deb-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(139, 58, 26, 0.82);
+}
+
+.deb-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  padding: 40px 32px;
+}
+
+.deb-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.deb-hero-content h1 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-weight: 700;
+  font-size: 42px;
+  color: var(--white);
+  line-height: 1.25;
+}
+
+.deb-hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 17px;
+  margin-top: 16px;
+}
+
+.deb-hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.deb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 12px 24px;
+  transition: var(--transition);
+}
+
+.deb-btn-white {
+  background: var(--white);
+  color: var(--deb-terracotta-dark);
+}
+
+.deb-btn-white:hover {
+  background: var(--deb-beige);
+}
+
+.deb-btn-outline-white {
+  background: transparent;
+  border: 1.5px solid var(--white);
+  color: var(--white);
+}
+
+.deb-btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== BANDEAU WHATSAPP ===== */
+.deb-wa-bandeau {
+  background: #25D366;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.deb-wa-bandeau strong {
+  color: var(--white);
+  display: block;
+}
+
+.deb-wa-bandeau p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.deb-wa-btn {
+  background: var(--white);
+  color: #25D366;
+  font-weight: 700;
+  border-radius: 6px;
+  min-height: 44px;
+  padding: 11px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ===== SECTIONS GÉNÉRIQUES ===== */
+.deb-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+/* ===== PRESTATIONS (3 cards) ===== */
+.deb-prestations {
+  padding: 64px 32px;
+  background: var(--white);
+}
+
+.deb-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.deb-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  background: var(--white);
+}
+
+.deb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.deb-card-header {
+  padding: 24px 20px;
+  color: var(--white);
+}
+
+.deb-card-header.featured {
+  border: 2px solid var(--deb-terracotta);
+}
+
+.deb-card-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.deb-card-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.deb-card-header h3 {
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.deb-card-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.deb-card-body {
+  padding: 18px 20px;
+}
+
+.deb-card-body p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.deb-card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* ===== SITUATIONS (2x2) ===== */
+.deb-situations {
+  padding: 64px 32px;
+  background: #f8f6f0;
+}
+
+.deb-situations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.deb-situation-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.deb-situation-card.deces {
+  background: var(--deb-beige);
+  border: 1px solid #f0d5c8;
+}
+
+.deb-situation-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.deb-situation-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.deb-situation-card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* ===== APRÈS UN DÉCÈS ===== */
+.deb-deces {
+  padding: 64px 32px;
+  background: var(--white);
+}
+
+.deb-deces-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.deb-deces-grid img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.deb-deces-badge {
+  display: inline-block;
+  background: var(--deb-beige);
+  color: var(--deb-terracotta-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.deb-deces-text h2 {
+  margin-bottom: 12px;
+}
+
+.deb-deces-text p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.deb-deces-checklist {
+  list-style: none;
+  margin: 16px 0 24px;
+}
+
+.deb-deces-checklist li {
+  position: relative;
+  padding: 5px 0 5px 22px;
+  font-size: 15px;
+  color: var(--dark);
+}
+
+.deb-deces-checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--deb-terracotta);
+  font-weight: 700;
+}
+
+.deb-deces-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--deb-terracotta);
+  color: var(--white);
+  border-radius: 6px;
+  min-height: 44px;
+  padding: 12px 24px;
+  font-weight: 700;
+}
+
+.deb-deces-btn:hover {
+  background: var(--deb-terracotta-dark);
+}
+
+/* ===== ÉTAPES ===== */
+.deb-steps {
+  padding: 64px 32px;
+  background: #f8f6f0;
+}
+
+.deb-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.deb-step {
+  text-align: center;
+}
+
+.deb-step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--deb-terracotta);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, 'Lora', serif);
+  font-weight: 700;
+  margin: 0 auto 14px;
+}
+
+.deb-step h3 {
+  margin-bottom: 8px;
+}
+
+.deb-step p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.deb-steps-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 32px;
+}
+
+/* ===== QUE DEVIENT CE QU'ON ENLÈVE ===== */
+.deb-devenir {
+  padding: 48px 32px;
+  background: var(--white);
+  text-align: center;
+}
+
+.deb-devenir-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.deb-devenir-card {
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.deb-devenir-card.dons {
+  background: var(--green-light);
+}
+
+.deb-devenir-card:not(.dons) {
+  background: #f8f6f0;
+}
+
+.deb-devenir-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.deb-devenir-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.deb-devenir-card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.deb-devenir-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+/* ===== TÉMOIGNAGE ===== */
+.deb-testimonial-wrap {
+  padding: 0 32px 48px;
+  background: var(--white);
+}
+
+.deb-testimonial-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--deb-beige);
+  border-left: 4px solid var(--deb-terracotta);
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.deb-testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f0d5c8;
+  color: var(--deb-terracotta-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.deb-testimonial-stars {
+  color: #F5A623;
+  margin-bottom: 10px;
+}
+
+.deb-testimonial-card blockquote {
+  font-style: italic;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.deb-testimonial-card footer {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+/* ===== NOTE EMS ===== */
+.deb-ems-note {
+  background: var(--green-light);
+  padding: 20px 32px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.deb-ems-note-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.deb-ems-note strong {
+  display: block;
+  color: #27500A;
+  margin-bottom: 4px;
+}
+
+.deb-ems-note p {
+  color: #3B6D11;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.deb-ems-note a {
+  color: var(--green-forest);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* ===== CTA FINAL ===== */
+.deb-cta-final {
+  background: var(--deb-terracotta);
+  padding: 64px 32px;
+  text-align: center;
+  color: var(--white);
+}
+
+.deb-cta-final h2 {
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.deb-cta-final > .container > p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 28px;
+}
+
+.deb-cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.deb-btn-wa {
+  background: #25D366;
+  color: var(--white);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .deb-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deb-deces-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deb-situations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .deb-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .deb-cards-grid,
+  .deb-steps-grid,
+  .deb-devenir-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deb-wa-bandeau {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .deb-prestations,
+  .deb-situations,
+  .deb-deces,
+  .deb-steps,
+  .deb-devenir,
+  .deb-cta-final {
+    padding: 48px 20px;
+  }
+
+  .deb-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .deb-testimonial-card {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,659 @@
+/* ==========================================================================
+   Départ en EMS — styles propres à cette page
+   Charge après ../style.css : réutilise --green-forest, --dark, --white,
+   --text-secondary, --radius, --shadow, --transition déjà définies.
+   ========================================================================== */
+
+:root {
+  --ems-sage: #6BBF9E;
+  --ems-dark: #1a3d2b;
+  --ems-terracotta: #C1765A;
+}
+
+/* ===== HERO ===== */
+.ems-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.ems-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.ems-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.ems-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(26, 61, 43, 0.88) 0%, rgba(45, 107, 80, 0.75) 60%, rgba(45, 107, 80, 0.55) 100%);
+}
+
+.ems-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 64px 40px;
+}
+
+.ems-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.ems-hero-content h1 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--white);
+  line-height: 1.25;
+}
+
+.ems-hero-subtitle {
+  font-family: var(--font-body, 'Nunito Sans', sans-serif);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 16px;
+  max-width: 560px;
+}
+
+.ems-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.ems-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  min-height: 48px;
+  padding: 13px 26px;
+  transition: var(--transition);
+}
+
+.ems-btn-white {
+  background: var(--white);
+  color: var(--green-forest);
+}
+
+.ems-btn-white:hover {
+  background: var(--green-light);
+}
+
+.ems-btn-outline-white {
+  background: transparent;
+  border: 1.5px solid var(--white);
+  color: var(--white);
+}
+
+.ems-btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ems-hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.ems-stat {
+  display: flex;
+  flex-direction: column;
+  padding-right: 32px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ems-stat:last-child {
+  border-right: none;
+}
+
+.ems-stat strong {
+  font-family: var(--font-display, 'Lora', serif);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--white);
+}
+
+.ems-stat span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===== BANDEAU CTA ===== */
+.ems-cta-bandeau {
+  background: var(--green-light);
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ems-cta-bandeau h2 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: 18px;
+  color: #27500A;
+}
+
+.ems-cta-bandeau p {
+  font-size: 14px;
+  color: #3B6D11;
+  margin-top: 2px;
+}
+
+.ems-bandeau-btn {
+  background: var(--green-forest);
+  color: var(--white);
+  border-radius: 6px;
+  min-height: 44px;
+  padding: 11px 22px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ===== IEPA / imad ===== */
+.ems-iepa {
+  background: var(--white);
+  padding: 48px 40px;
+  border-top: 1px solid var(--border-light, #e8e8e8);
+  border-bottom: 1px solid var(--border-light, #e8e8e8);
+}
+
+.ems-iepa-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+.ems-iepa-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.ems-iepa h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.ems-iepa-text {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.ems-iepa-points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.ems-iepa-point strong {
+  display: block;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.ems-iepa-point p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ===== INTRO ÉMOTIONNELLE ===== */
+.ems-intro {
+  padding: 72px 40px;
+  background: var(--white);
+}
+
+.ems-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ems-intro-grid img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.ems-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ems-sage);
+  margin-bottom: 8px;
+}
+
+.ems-intro-text p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.ems-intro-quote {
+  border-left: 3px solid var(--ems-sage);
+  padding-left: 16px;
+  font-family: var(--font-display, 'Lora', serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--green-forest);
+  margin-top: 20px;
+}
+
+/* ===== ACCORDÉON SERVICES ===== */
+.ems-services {
+  padding: 72px 40px;
+  background: #f8f6f2;
+}
+
+.ems-services-list {
+  max-width: 820px;
+  margin: 40px auto 0;
+}
+
+.acc-item {
+  border-bottom: 1px solid var(--border-light, #e8e8e8);
+}
+
+.acc-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  min-height: 44px;
+}
+
+.acc-question:focus-visible {
+  outline: 2px solid var(--green-forest);
+  outline-offset: 2px;
+}
+
+.acc-number {
+  font-family: var(--font-display, 'Lora', serif);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--green-light);
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.acc-titles {
+  flex: 1;
+}
+
+.acc-titles h3 {
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+
+.acc-titles span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.acc-chevron {
+  font-size: 22px;
+  color: var(--green-forest);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.acc-question[aria-expanded="true"] .acc-chevron {
+  transform: rotate(90deg);
+}
+
+.acc-content {
+  padding: 0 0 32px 68px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+}
+
+.acc-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.acc-content p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.acc-content ul {
+  list-style: none;
+}
+
+.acc-content ul li {
+  position: relative;
+  padding: 4px 0 4px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.acc-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-forest);
+}
+
+/* ===== APPROCHE HUMAINE ===== */
+.ems-approche {
+  background: var(--green-light);
+  padding: 72px 40px;
+}
+
+.ems-approche-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.ems-approche-grid img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
+}
+
+.ems-approche-text h2 {
+  margin-bottom: 10px;
+}
+
+.ems-approche-text > p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.ems-approche-checklist {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.ems-approche-checklist li {
+  position: relative;
+  padding: 5px 0 5px 22px;
+  color: #27500A;
+  font-weight: 600;
+}
+
+.ems-approche-checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-forest);
+}
+
+.ems-approche-quote {
+  border-left: 3px solid var(--green-forest);
+  padding-left: 16px;
+  font-family: var(--font-display, 'Lora', serif);
+  font-style: italic;
+  color: #27500A;
+}
+
+/* ===== SITUATION PARTICULIÈRE ===== */
+.ems-situation {
+  padding: 56px 40px;
+  background: var(--white);
+  text-align: center;
+}
+
+.ems-situation-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.ems-situation p.ems-situation-text {
+  color: var(--text-secondary);
+  margin: 12px 0 32px;
+}
+
+.ems-situation-points {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ems-situation-point {
+  flex: 1;
+  min-width: 180px;
+}
+
+.ems-situation-point-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.ems-situation-point strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ems-situation-point p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ===== TÉMOIGNAGES ===== */
+.ems-testimonials {
+  padding: 72px 40px;
+  background: #f8f6f2;
+}
+
+.ems-testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.ems-testimonial-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+.ems-testimonial-stars {
+  color: #F5A623;
+  margin-bottom: 14px;
+}
+
+.ems-testimonial-card blockquote {
+  color: var(--dark);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.ems-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ems-testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ems-testimonial-author span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+/* ===== CTA FINAL ===== */
+.ems-cta-final {
+  background: linear-gradient(135deg, var(--ems-dark) 0%, var(--green-forest) 100%);
+  padding: 80px 40px;
+  text-align: center;
+  color: var(--white);
+}
+
+.ems-cta-final h2 {
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.ems-cta-final > .container > p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+.ems-cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.ems-btn-wa {
+  background: #25D366;
+  color: var(--white);
+}
+
+.ems-cta-guarantees {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .ems-intro-grid,
+  .ems-approche-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acc-content {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+
+  .ems-iepa-points {
+    grid-template-columns: 1fr;
+  }
+
+  .ems-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .ems-cta-bandeau {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .ems-hero {
+    min-height: 520px;
+  }
+
+  .ems-hero-content {
+    padding: 48px 20px;
+  }
+
+  .ems-cta-bandeau,
+  .ems-iepa,
+  .ems-intro,
+  .ems-services,
+  .ems-approche,
+  .ems-situation,
+  .ems-testimonials,
+  .ems-cta-final {
+    padding: 48px 20px;
+  }
+
+  .ems-stat {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .ems-hero-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ems-situation-points {
+    flex-direction: column;
+  }
+
+  .ems-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acc-content {
+    padding-bottom: 24px;
+  }
+
+  .ems-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

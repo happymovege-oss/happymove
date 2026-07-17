@@ -71,6 +71,24 @@ img {
   padding: 0 24px;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  z-index: 2000;
+  background: var(--green-forest);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
 /* Placeholder for missing images */
 .img-placeholder {
   width: 100%;
