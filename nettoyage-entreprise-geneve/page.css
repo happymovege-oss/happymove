@@ -600,12 +600,12 @@
 }
 
 .ne-form-section h2 {
-  color: var(--white);
+  color: #1a1a1a;
   margin-bottom: 12px;
 }
 
 .ne-form-section > .container > p {
-  color: rgba(255, 255, 255, 0.85);
+  color: #2f2f2f;
   max-width: 520px;
   margin: 0 auto;
 }
