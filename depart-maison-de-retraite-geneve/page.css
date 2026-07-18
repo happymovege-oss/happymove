@@ -225,6 +225,26 @@
   color: var(--text-secondary);
 }
 
+.ems-iepa-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light, #e8e8e8);
+}
+
+.ems-iepa-links a {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-forest);
+  text-decoration: underline;
+}
+
+.ems-iepa-links a:hover {
+  color: var(--ems-dark, #1a3d2b);
+}
+
 /* ===== INTRO ÉMOTIONNELLE ===== */
 .ems-intro {
   padding: 72px 40px;
