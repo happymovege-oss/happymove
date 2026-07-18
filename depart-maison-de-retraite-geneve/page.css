@@ -245,6 +245,21 @@
   color: var(--ems-dark, #1a3d2b);
 }
 
+.ems-links-section {
+  padding: 40px 40px 48px;
+  background: var(--white);
+}
+
+.ems-links-section .section-heading {
+  margin-bottom: 18px;
+}
+
+.ems-links-section .ems-iepa-links {
+  justify-content: center;
+  text-align: center;
+  margin-top: 0;
+}
+
 /* ===== INTRO ÉMOTIONNELLE ===== */
 .ems-intro {
   padding: 72px 40px;
