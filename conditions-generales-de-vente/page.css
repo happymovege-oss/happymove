@@ -49,6 +49,15 @@
   color: var(--green-forest);
 }
 
+.legal-container h4 {
+  font-family: var(--font-body, 'Nunito Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  color: var(--dark);
+}
+
 .legal-container p {
   color: var(--text-secondary);
   margin-bottom: 14px;
