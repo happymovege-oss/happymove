@@ -247,8 +247,8 @@
 }
 
 .nfb-step-circle {
-  width: 48px;
-  height: 48px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: var(--blue-main);
   color: var(--white);
@@ -257,7 +257,7 @@
   justify-content: center;
   font-family: var(--font-display, 'Lora', serif);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 28px;
   margin: 0 auto 14px;
 }
 

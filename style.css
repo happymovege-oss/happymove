@@ -288,6 +288,23 @@ img {
   padding: 72px 0;
 }
 
+.hero-home {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.68) 38%, rgba(0, 0, 0, 0.34) 68%, rgba(0, 0, 0, 0.14) 100%),
+    url("Images/fond happy move.png") center center / cover no-repeat;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-home .hero-inner {
+  grid-template-columns: minmax(0, 620px);
+}
+
+.hero-home .hero-subtitle {
+  max-width: 680px;
+}
+
 .hero-inner {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -473,6 +490,15 @@ img {
   align-items: center;
 }
 
+.ems-photo {
+  width: 100%;
+  min-height: 380px;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
 .ems-image .img-placeholder {
   min-height: 380px;
 }
@@ -586,6 +612,15 @@ img {
 
 .realisations-grid .img-placeholder {
   min-height: 220px;
+}
+
+.realisation-photo {
+  width: 100%;
+  min-height: 220px;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius);
 }
 
 /* ==========================================================================
