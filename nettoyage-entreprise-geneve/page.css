@@ -426,6 +426,172 @@
   margin: 0;
 }
 
+/* ===== NOS FORMULES ===== */
+.ne-offers {
+  padding: 64px 40px;
+  background: var(--grey-bg, #F5F5F3);
+}
+
+.ne-offers h2 {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.ne-offers-sub {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
+.ne-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.ne-offer-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ne-offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.ne-offer-card.featured {
+  border: 2px solid var(--green-forest);
+  box-shadow: 0 8px 28px rgba(45, 107, 80, 0.15);
+}
+
+.ne-offer-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--green-forest);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.ne-offer-badge-outline {
+  background: var(--white);
+  color: var(--ne-grey);
+  border: 1.5px solid var(--border, #e2e2e2);
+}
+
+.ne-offer-card h3 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: 19px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.ne-offer-tagline {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.ne-offer-price {
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 18px;
+}
+
+.ne-offer-price-main {
+  display: block;
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ne-grey);
+}
+
+.featured .ne-offer-price-main {
+  color: var(--green-forest);
+}
+
+.ne-offer-price-sub {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.ne-offer-list {
+  list-style: none;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.ne-offer-list li {
+  position: relative;
+  padding: 4px 0 4px 22px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.ne-offer-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green-forest);
+  font-weight: 700;
+}
+
+.ne-offer-cta {
+  display: block;
+  text-align: center;
+  background: var(--white);
+  color: var(--ne-grey);
+  border: 1.5px solid var(--ne-grey);
+  border-radius: 6px;
+  min-height: 44px;
+  line-height: 44px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.ne-offer-cta:hover {
+  background: var(--grey-bg, #F5F5F3);
+}
+
+.ne-offer-cta-featured {
+  background: var(--green-forest);
+  color: var(--white);
+  border-color: var(--green-forest);
+}
+
+.ne-offer-cta-featured:hover {
+  background: var(--green-dark, #1a3d2b);
+}
+
+.ne-offers-extra {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.ne-offers-extra span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
 /* ===== FORMULAIRE ===== */
 .ne-form-section {
   background: linear-gradient(135deg, var(--ne-grey-dark) 0%, var(--ne-grey) 100%);
@@ -552,6 +718,16 @@
   .ne-step-arrow {
     display: none;
   }
+
+  .ne-offers-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .ne-offer-card.featured {
+    order: -1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -572,6 +748,7 @@
   .ne-clients,
   .ne-steps,
   .ne-conditions,
+  .ne-offers,
   .ne-form-section {
     padding: 48px 20px;
   }
