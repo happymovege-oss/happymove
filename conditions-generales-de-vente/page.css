@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Conditions générales de vente — styles propres à cette page
+   (même pattern que mentions-legales/page.css)
+   ========================================================================== */
+
+.legal-hero {
+  background: var(--grey-bg, #F8F6F2);
+  padding: 56px 40px 40px;
+  text-align: center;
+}
+
+.legal-hero h1 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+}
+
+.legal-hero p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.legal-content {
+  padding: 64px 40px 80px;
+  background: var(--white);
+}
+
+.legal-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.legal-container h2 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.legal-container h2:first-child {
+  margin-top: 0;
+}
+
+.legal-container h3 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: 16px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: var(--green-forest);
+}
+
+.legal-container p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.legal-container ul {
+  list-style: none;
+  margin-bottom: 14px;
+}
+
+.legal-container ul li {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  color: var(--text-secondary);
+}
+
+.legal-container ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+}
+
+.legal-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.legal-container table th,
+.legal-container table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border, #e2e2e2);
+  color: var(--text-secondary);
+}
+
+.legal-container table th {
+  color: var(--dark);
+  font-weight: 700;
+  background: var(--grey-bg, #F8F6F2);
+}
+
+.legal-container a {
+  color: var(--green-forest);
+  text-decoration: underline;
+}
+
+.legal-note {
+  font-size: 13px;
+  color: #888;
+  background: #FFF8E8;
+  border-left: 3px solid #D4A017;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.legal-toc {
+  background: var(--grey-bg, #F8F6F2);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.legal-toc p {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.legal-toc ol {
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.legal-toc ol li {
+  padding: 2px 0;
+}
+
+.legal-toc a {
+  text-decoration: none;
+}
+
+.legal-toc a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .legal-hero,
+  .legal-content {
+    padding: 40px 20px;
+  }
+
+  .legal-container table {
+    font-size: 13px;
+  }
+}
