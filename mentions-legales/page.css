@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Mentions légales — styles propres à cette page
+   ========================================================================== */
+
+.legal-hero {
+  background: var(--grey-bg, #F8F6F2);
+  padding: 56px 40px 40px;
+  text-align: center;
+}
+
+.legal-hero h1 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+}
+
+.legal-hero p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.legal-content {
+  padding: 64px 40px 80px;
+  background: var(--white);
+}
+
+.legal-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.legal-container h2 {
+  font-family: var(--font-display, 'Lora', serif);
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.legal-container h2:first-child {
+  margin-top: 0;
+}
+
+.legal-container p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.legal-container ul {
+  list-style: none;
+  margin-bottom: 14px;
+}
+
+.legal-container ul li {
+  padding: 4px 0;
+  color: var(--text-secondary);
+}
+
+.legal-container a {
+  color: var(--green-forest);
+  text-decoration: underline;
+}
+
+.legal-note {
+  font-size: 13px;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .legal-hero,
+  .legal-content {
+    padding: 40px 20px;
+  }
+}
