@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    { "source": "/contact/", "destination": "/contact.html", "permanent": true },
+    { "source": "/mentions-legales-happy-move-sarl/", "destination": "/mentions-legales/", "permanent": true },
+    { "source": "/conditions-generales/", "destination": "/conditions-generales-de-vente/", "permanent": true },
+    { "source": "/articles-de-blog/", "destination": "/blog/guide-demarches-depart-ems-geneve/", "permanent": true },
+    { "source": "/nettoyage-apres-demenagement-a-geneve/", "destination": "/nettoyage-fin-de-bail-geneve/", "permanent": true },
+    { "source": "/preparer-un-depart-en-maison-de-retraite-a-geneve/", "destination": "/blog/preparer-un-depart-en-maison-de-retraite-a-geneve/", "permanent": true },
+    { "source": "/post-1/", "destination": "/blog/", "permanent": true },
+    { "source": "/post-2/", "destination": "/blog/", "permanent": true },
+    { "source": "/post-3/", "destination": "/blog/", "permanent": true },
+    { "source": "/checklist_demenagement_happymove/", "destination": "/blog/", "permanent": true }
+  ]
+}
