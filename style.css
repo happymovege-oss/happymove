@@ -814,6 +814,10 @@ img {
   }
 }
 
+.mobile-cta-bar {
+  display: none;
+}
+
 /* ==========================================================================
    Responsive — Mobile (< 768px)
    ========================================================================== */
@@ -870,6 +874,34 @@ img {
   .hero-subtitle {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  body {
+    padding-bottom: 68px;
+  }
+
+  .mobile-cta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    background: var(--green-forest);
+    color: var(--white);
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 20px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    text-align: center;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .mobile-cta-bar:hover {
+    background: var(--green-forest-dark);
   }
 
   .hero-actions {
