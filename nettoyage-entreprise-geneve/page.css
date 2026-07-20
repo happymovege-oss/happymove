@@ -724,10 +724,6 @@
     max-width: 420px;
     margin: 0 auto;
   }
-
-  .ne-offer-card.featured {
-    order: -1;
-  }
 }
 
 @media (max-width: 768px) {
