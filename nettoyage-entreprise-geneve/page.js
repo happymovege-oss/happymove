@@ -1,12 +1,12 @@
 // Nettoyage entreprise — comportements propres à cette page
 // (header/burger déjà gérés par ../script.js)
-// Envoi du formulaire via FormSubmit vers info@happymove-ge.ch.
+// Envoi du formulaire via Web3Forms (même service que contact.html).
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('devis-form');
   if (!form) return;
 
-  const FORM_ENDPOINT = 'https://formsubmit.co/info@happymove-ge.ch';
+  const WEB3FORMS_ACCESS_KEY = '1033b124-f3fc-49d5-b1d1-64ad5f9e429b';
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -20,10 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     if (valid) {
-      const formData = new FormData(this);
-      formData.append('_subject', 'Nouvelle demande — Nettoyage entreprise');
-      formData.append('_captcha', 'false');
-      formData.append('_template', 'table');
+      const nom = document.getElementById('nom').value;
+      const tel = document.getElementById('tel').value;
+      const email = document.getElementById('email').value;
+      const surface = document.getElementById('surface').value;
+
+      const message = `NOUVELLE DEMANDE — NETTOYAGE ENTREPRISE\n`
+        + `=================================\n\n`
+        + `Nom / entreprise : ${nom}\n`
+        + `Téléphone : ${tel}\n`
+        + `Email : ${email}\n`
+        + `Surface : ${surface || 'non précisée'}\n\n`
+        + `---\nEnvoyé depuis happymove-ge.ch/nettoyage-entreprise-geneve/`;
 
       const submitButton = this.querySelector('.btn-submit');
       const originalButtonText = submitButton ? submitButton.textContent : '';
@@ -33,16 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        const response = await fetch(FORM_ENDPOINT, {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: formData,
-          headers: {
-            Accept: 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: 'Nouvelle demande — Nettoyage entreprise — depuis le site web',
+            from_name: nom,
+            email: email,
+            telephone: tel,
+            message: message,
+          }),
         });
 
-        if (!response.ok) {
-          throw new Error('Echec envoi formulaire');
+        const result = await response.json();
+        if (!result.success) {
+          throw new Error(result.message || 'Echec envoi formulaire');
         }
 
         this.innerHTML = `
