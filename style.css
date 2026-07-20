@@ -291,7 +291,7 @@ img {
 .hero-home {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.68) 38%, rgba(0, 0, 0, 0.34) 68%, rgba(0, 0, 0, 0.14) 100%),
-    url("Images/fond happy move.png") center center / cover no-repeat;
+    url("Images/fond happy move.webp") center center / cover no-repeat;
   min-height: 720px;
   display: flex;
   align-items: center;
