@@ -27,4 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
       burger.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Suivi de conversion Google Ads : clic téléphone / WhatsApp (délégation, couvre toutes les pages)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link || typeof gtag !== 'function') return;
+
+    if (link.href.startsWith('tel:')) {
+      gtag('event', 'conversion', { send_to: 'AW-10792863914/eq9QCPu2h9YcEKqRuJoo' });
+    } else if (link.href.includes('wa.me')) {
+      gtag('event', 'conversion', { send_to: 'AW-10792863914/6zW9CKOIi9YcEKqRuJoo' });
+    }
+  });
 });
