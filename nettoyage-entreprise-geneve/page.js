@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error(result.message || 'Echec envoi formulaire');
         }
 
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { send_to: 'AW-10792863914/DoGjCODZhtYcEKqRuJoo' });
+        }
+
         this.innerHTML = `
         <div style="text-align:center;padding:32px 0;">
           <div style="font-size:40px;margin-bottom:16px;">✓</div>

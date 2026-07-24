@@ -226,6 +226,10 @@
         throw new Error(result.message || 'Échec de l\'envoi');
       }
 
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', { send_to: 'AW-10792863914/DoGjCODZhtYcEKqRuJoo' });
+      }
+
       showPopup(serviceName);
 
       form.reset();
