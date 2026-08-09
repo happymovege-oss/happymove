@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Entreprise de nettoyage — page hub
+   ========================================================================== */
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--green-forest);
+  border-color: var(--green-forest);
+}
+
+.btn-outline-dark:hover {
+  background: var(--green-forest);
+  color: var(--white);
+}
+
+/* ===== Hero ===== */
+.hub-hero {
+  background: var(--beige);
+  padding: 72px 0;
+}
+
+.hub-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hub-eyebrow {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--green-forest);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hub-hero-text h1 {
+  margin-bottom: 20px;
+}
+
+.hub-hero-intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.hub-hero-sub {
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.hub-hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hub-hero-image .img-placeholder {
+  min-height: 320px;
+}
+
+.hub-hero-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+/* ===== Blocs de service ===== */
+.hub-services {
+  padding: 72px 0;
+}
+
+.hub-service-block {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.hub-service-block--reverse {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.hub-service-block--reverse .hub-service-image {
+  order: 2;
+}
+
+.hub-service-image .img-placeholder {
+  min-height: 220px;
+}
+
+.hub-service-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.hub-service-text h2 {
+  margin-bottom: 14px;
+}
+
+.hub-service-text p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.hub-service-link {
+  font-weight: 700;
+  color: var(--green-forest);
+}
+
+.hub-service-link:hover {
+  color: var(--green-forest-dark);
+  text-decoration: underline;
+}
+
+.hub-mention {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.hub-mention a {
+  color: var(--green-forest);
+  font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .hub-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-hero-image {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hub-hero {
+    padding: 48px 20px;
+  }
+
+  .hub-services {
+    padding: 48px 20px;
+  }
+
+  .hub-service-block,
+  .hub-service-block--reverse {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .hub-service-block--reverse .hub-service-image {
+    order: 0;
+  }
+}

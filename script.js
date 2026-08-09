@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     burger.setAttribute('aria-expanded', String(isOpen));
   });
 
+  // Sous-menu déroulant "Entreprise de nettoyage" (accordéon mobile)
+  document.querySelectorAll('.nav-dropdown-caret').forEach((caret) => {
+    caret.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const dropdown = caret.closest('.nav-dropdown');
+      const isOpen = dropdown.classList.toggle('open');
+      caret.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
   // Fermer le menu mobile après clic sur un lien
   nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {

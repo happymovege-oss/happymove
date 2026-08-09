@@ -1,0 +1,800 @@
+/* ==========================================================================
+   Nettoyage matelas — page produit avec configurateur
+   ========================================================================== */
+
+.nm-narrow {
+  max-width: 760px;
+}
+
+.nm-centered {
+  text-align: center;
+}
+
+/* ===== Hero ===== */
+.nm-hero {
+  background: var(--beige);
+  padding: 64px 0;
+}
+
+.nm-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.nm-hero-text h1 {
+  margin-bottom: 12px;
+}
+
+.nm-h1-sub {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green-forest-dark);
+  margin-top: 6px;
+}
+
+.nm-hero-subtitle {
+  font-size: 18px;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.nm-hero-price {
+  font-family: 'Lora', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green-forest);
+  margin-bottom: 20px;
+}
+
+.nm-hero-cta {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 17px;
+  min-height: 48px;
+  margin-bottom: 14px;
+}
+
+.nm-proof-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.nm-proof-bar span:not(:last-child)::after {
+  content: '·';
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nm-question-link {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  color: var(--green-forest);
+}
+
+.nm-question-link:hover {
+  text-decoration: underline;
+}
+
+.nm-hero-image .img-placeholder {
+  min-height: 320px;
+}
+
+.nm-hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+/* ===== Sections génériques ===== */
+.nm-section {
+  padding: 56px 0;
+}
+
+.nm-section-alt {
+  background: var(--green-light);
+}
+
+.nm-section h2 {
+  margin-bottom: 20px;
+}
+
+.nm-section p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.nm-cta-center {
+  text-align: center;
+  margin-top: 28px;
+}
+
+/* ===== 3. Galerie visuelle ===== */
+.nm-gallery {
+  background: var(--white);
+  padding: 0 0 4px;
+}
+
+.nm-gallery-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 20px;
+}
+
+.nm-gallery-slide {
+  flex: 0 0 78%;
+  max-width: 320px;
+  scroll-snap-align: start;
+}
+
+.nm-gallery-slide .img-placeholder {
+  min-height: 220px;
+}
+
+.nm-gallery-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .nm-gallery-track {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    row-gap: 16px;
+  }
+
+  .nm-gallery-slide {
+    flex: 0 0 240px;
+    max-width: 240px;
+  }
+}
+
+/* ===== 5. Bénéfices ===== */
+.nm-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.nm-benefit-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 20px 18px;
+}
+
+.nm-benefit-card--wide {
+  grid-column: 1 / -1;
+}
+
+.nm-benefit-icon {
+  display: block;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.nm-benefit-card h3 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.nm-benefit-card p {
+  font-size: 13px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+@media (min-width: 900px) {
+  .nm-benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nm-benefit-card--wide {
+    grid-column: auto;
+  }
+}
+
+/* ===== 6. Bloc technique ===== */
+.nm-tech {
+  background: var(--white);
+  padding: 56px 0;
+}
+
+.nm-tech-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.nm-tech-item:last-child {
+  border-bottom: none;
+}
+
+.nm-tech-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.nm-tech-item h3 {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: var(--dark);
+}
+
+.nm-tech-item p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* ===== 7. Comment ça marche ===== */
+.nm-steps-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.nm-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.nm-step p {
+  margin-bottom: 0;
+  font-size: 14.5px;
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.nm-step-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--green-forest);
+  color: var(--white);
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.nm-step-arrow {
+  display: none;
+  color: var(--green-sage);
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .nm-steps-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nm-step {
+    flex: 1;
+    max-width: 220px;
+  }
+
+  .nm-step-arrow {
+    display: block;
+  }
+}
+
+/* ===== 9. Upsell famille ===== */
+.nm-family-example {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green-forest-dark);
+}
+
+/* ===== 11. Confiance ===== */
+.nm-trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.nm-trust-icon {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.nm-trust-item h3 {
+  font-family: 'Lora', serif;
+  font-size: 15.5px;
+  margin-bottom: 4px;
+  color: var(--dark);
+}
+
+.nm-trust-item p {
+  font-size: 13.5px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .nm-trust-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== 12. FAQ accordéon ===== */
+.nm-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nm-acc-item {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.nm-acc-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.nm-acc-chevron {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--green-forest);
+  transition: transform var(--transition);
+}
+
+.nm-acc-question[aria-expanded="true"] .nm-acc-chevron {
+  transform: rotate(90deg);
+}
+
+.nm-acc-content {
+  padding: 0 18px 16px;
+}
+
+.nm-acc-content p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* ===== 13. CTA final ===== */
+.nm-cta-final {
+  background: var(--green-forest);
+  color: var(--white);
+  padding: 56px 0;
+  text-align: center;
+}
+
+.nm-cta-final h2 {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.nm-cta-final .btn-white {
+  display: inline-block;
+  background: var(--white);
+  color: var(--green-forest-dark);
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 8px;
+}
+
+.nm-cta-final .btn-white:hover {
+  background: var(--beige);
+}
+
+/* ===== Sticky bar mobile ===== */
+.nm-sticky-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--white);
+  border-top: 1px solid #e2e2e2;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.1);
+  padding: 12px 20px;
+}
+
+.nm-sticky-bar span {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+.nm-sticky-bar .btn {
+  padding: 10px 22px;
+  font-size: 14.5px;
+}
+
+/* ===== Table séchage ===== */
+.nm-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+}
+
+.nm-table th,
+.nm-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.nm-table th {
+  font-family: 'Lora', serif;
+  color: var(--green-forest-dark);
+}
+
+.nm-fine-print {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.nm-hub-link {
+  text-align: center;
+  padding: 28px 0;
+}
+
+.nm-hub-link a {
+  color: var(--green-forest);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Configurateur
+   ========================================================================== */
+.nm-configurator-section {
+  padding: 64px 0;
+  background: var(--beige);
+}
+
+.nm-configurator {
+  max-width: 640px;
+  margin: 32px auto 0;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-hover);
+  padding: 36px;
+}
+
+.nm-config-block {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.nm-config-block h3 {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.nm-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--green-forest);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* --- Steppers --- */
+.nm-stepper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.nm-stepper-label strong {
+  display: block;
+  color: var(--dark);
+  font-size: 15px;
+}
+
+.nm-stepper-label span {
+  display: block;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.nm-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.nm-stepper-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--green-forest);
+  background: var(--white);
+  color: var(--green-forest);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nm-stepper-btn:hover {
+  background: var(--green-forest);
+  color: var(--white);
+}
+
+.nm-stepper-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+/* --- Checkbox rows --- */
+.nm-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: var(--dark);
+}
+
+.nm-checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green-forest);
+  flex-shrink: 0;
+}
+
+/* --- Canapé details reveal --- */
+.nm-canape-details {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #ddd;
+}
+
+.nm-canape-details select s {
+  color: #999;
+}
+
+/* --- Récap --- */
+.nm-recap {
+  background: var(--green-light);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.nm-recap-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 14.5px;
+  color: var(--dark);
+}
+
+.nm-recap-row[hidden] {
+  display: none;
+}
+
+.nm-recap-total {
+  font-size: 18px;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(45, 107, 80, 0.2);
+}
+
+.nm-recap-total strong {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  color: var(--green-forest);
+}
+
+.nm-recap-savings strong {
+  color: var(--terracotta);
+}
+
+/* --- Form fields (shared with .nm-config-block) --- */
+.nm-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.nm-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.nm-configurator label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.nm-configurator input[type="text"],
+.nm-configurator input[type="tel"],
+.nm-configurator input[type="date"],
+.nm-configurator select {
+  padding: 12px 14px;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--dark);
+  min-height: 46px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.nm-configurator input:focus,
+.nm-configurator select:focus {
+  outline: none;
+  border-color: var(--green-forest);
+  box-shadow: 0 0 0 3px rgba(45, 107, 80, 0.15);
+}
+
+.nm-configurator .btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--green-forest);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Nunito Sans', sans-serif;
+  cursor: pointer;
+  min-height: 50px;
+  transition: background var(--transition);
+}
+
+.nm-configurator .btn-submit:hover {
+  background: var(--green-forest-dark);
+}
+
+.nm-configurator .btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.nm-configurator .form-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 769px) {
+  .nm-hero-cta {
+    width: auto;
+  }
+
+  .nm-question-link {
+    text-align: left;
+  }
+
+  .nm-sticky-bar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nm-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nm-hero {
+    padding: 48px 20px;
+  }
+
+  .nm-section {
+    padding: 40px 20px;
+  }
+
+  .nm-tech {
+    padding: 40px 20px;
+  }
+
+  .nm-configurator-section {
+    padding: 40px 20px;
+  }
+
+  .nm-configurator {
+    padding: 24px;
+  }
+
+  .nm-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .nm-stepper-row {
+    align-items: flex-start;
+  }
+
+  .nm-cta-final {
+    padding: 40px 20px;
+  }
+
+  main {
+    padding-bottom: 66px;
+  }
+}

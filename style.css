@@ -215,6 +215,77 @@ img {
   color: var(--green-forest);
 }
 
+/* ===== Sous-menu déroulant ===== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown-caret {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dark);
+  font-size: 11px;
+  padding: 4px;
+  line-height: 1;
+  transition: transform var(--transition);
+}
+
+.nav-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 769px) {
+  .nav-dropdown-caret {
+    display: none;
+  }
+
+  .nav-submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    min-width: 220px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    z-index: 50;
+  }
+
+  .nav-dropdown:hover .nav-submenu,
+  .nav-dropdown:focus-within .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nav-submenu li a {
+    display: block;
+    padding: 10px 18px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .nav-submenu li a:hover {
+    background: var(--green-light);
+    color: var(--green-forest);
+  }
+}
+
 .header-cta {
   white-space: nowrap;
   padding: 10px 22px;
@@ -765,6 +836,21 @@ img {
   font-size: 14px;
 }
 
+.footer-sublist {
+  list-style: none;
+  margin: 4px 0 10px 16px;
+  padding: 0;
+}
+
+.footer-sublist li {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.footer-sublist a {
+  opacity: 0.85;
+}
+
 .footer-social {
   display: flex;
   gap: 16px;
@@ -841,13 +927,41 @@ img {
   }
 
   .main-nav.open {
-    max-height: 400px;
+    max-height: 620px;
   }
 
   .main-nav a {
     padding: 14px 0;
     width: 100%;
     text-align: center;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-row {
+    justify-content: center;
+  }
+
+  .nav-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+
+  .nav-dropdown.open .nav-submenu {
+    max-height: 300px;
+  }
+
+  .nav-dropdown.open .nav-dropdown-caret {
+    transform: rotate(180deg);
+  }
+
+  .nav-submenu li a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 10px 0;
   }
 
   .header-cta {
