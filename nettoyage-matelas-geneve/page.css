@@ -158,6 +158,52 @@
   display: block;
 }
 
+.nm-stat-card {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--green-forest);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.nm-stat-card strong {
+  font-family: 'Lora', serif;
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.nm-stat-card span {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.nm-stat-card p {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.nm-vapeur-callout {
+  text-align: center;
+  margin: 28px auto 0;
+  padding: 10px 20px;
+  background: var(--green-light);
+  border-radius: 999px;
+  display: table;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-forest-dark);
+}
+
 @media (min-width: 768px) {
   .nm-gallery-track {
     flex-wrap: wrap;
@@ -616,6 +662,13 @@
   height: 18px;
   accent-color: var(--green-forest);
   flex-shrink: 0;
+}
+
+.nm-vapeur-note {
+  margin: 6px 0 0 28px;
+  font-size: 12.5px;
+  color: var(--green-forest-dark);
+  font-weight: 600;
 }
 
 /* --- Canapé details reveal --- */
