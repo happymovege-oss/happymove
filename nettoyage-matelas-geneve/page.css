@@ -690,7 +690,8 @@
 .nm-configurator input[type="text"],
 .nm-configurator input[type="tel"],
 .nm-configurator input[type="date"],
-.nm-configurator select {
+.nm-configurator select,
+.nm-configurator textarea {
   padding: 12px 14px;
   border: 1.5px solid #e2e2e2;
   border-radius: 8px;
@@ -701,8 +702,13 @@
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
+.nm-configurator textarea {
+  resize: vertical;
+}
+
 .nm-configurator input:focus,
-.nm-configurator select:focus {
+.nm-configurator select:focus,
+.nm-configurator textarea:focus {
   outline: none;
   border-color: var(--green-forest);
   box-shadow: 0 0 0 3px rgba(45, 107, 80, 0.15);

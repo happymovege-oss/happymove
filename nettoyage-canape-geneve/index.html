@@ -443,11 +443,25 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="nc-adresse">Adresse *</label>
+          <input type="text" id="nc-adresse" name="adresse" required aria-required="true" placeholder="Rue et numéro">
+        </div>
+        <div class="nc-form-row">
+          <div class="form-group">
+            <label for="nc-npa">Code postal *</label>
+            <input type="text" id="nc-npa" name="npa" required aria-required="true" placeholder="1212" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label for="nc-ville">Ville *</label>
+            <input type="text" id="nc-ville" name="ville" required aria-required="true" placeholder="Grand-Lancy">
+          </div>
+        </div>
+        <div class="form-group">
           <label for="nc-date">Date souhaitée (optionnel)</label>
           <input type="date" id="nc-date" name="date">
         </div>
         <div class="form-group">
-          <label for="nc-message">Message / précisions (optionnel)</label>
+          <label for="nc-message">Commentaire (optionnel)</label>
           <textarea id="nc-message" name="message" rows="3" placeholder="Taches particulières, étage sans ascenseur, etc."></textarea>
         </div>
         <button type="submit" class="btn-submit">Envoyer ma demande</button>

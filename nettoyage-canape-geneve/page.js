@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const tel = document.getElementById('nc-tel').value;
     const email = document.getElementById('nc-email').value;
     const format = document.getElementById('nc-format').value;
+    const adresse = document.getElementById('nc-adresse').value;
+    const npa = document.getElementById('nc-npa').value;
+    const ville = document.getElementById('nc-ville').value;
     const date = document.getElementById('nc-date').value;
     const message = document.getElementById('nc-message').value;
 
@@ -50,8 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
       + `Téléphone : ${tel}\n`
       + `Email : ${email || 'non renseigné'}\n`
       + `Format du canapé : ${format}\n`
+      + `Adresse : ${adresse}\n`
+      + `NPA / Ville : ${npa} ${ville}\n`
       + `Date souhaitée : ${date || 'non précisée'}\n`
-      + `Message : ${message || '—'}\n\n`
+      + `Commentaire : ${message || '—'}\n\n`
       + `---\nEnvoyé depuis happymove-ge.ch/nettoyage-canape-geneve/`;
 
     const submitButton = this.querySelector('.btn-submit');

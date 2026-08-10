@@ -379,13 +379,23 @@
               <input type="tel" id="nm-tel" name="tel" required aria-required="true" placeholder="078 000 00 00">
             </div>
             <div class="nm-form-group">
-              <label for="nm-npa">NPA *</label>
+              <label for="nm-adresse">Adresse *</label>
+              <input type="text" id="nm-adresse" name="adresse" required aria-required="true" placeholder="Rue et numéro">
+            </div>
+          </div>
+          <div class="nm-form-row">
+            <div class="nm-form-group">
+              <label for="nm-npa">Code postal *</label>
               <input type="text" id="nm-npa" name="npa" required aria-required="true" placeholder="1212" inputmode="numeric">
+            </div>
+            <div class="nm-form-group">
+              <label for="nm-ville">Ville *</label>
+              <input type="text" id="nm-ville" name="ville" required aria-required="true" placeholder="Grand-Lancy">
             </div>
           </div>
           <div class="nm-form-group">
-            <label for="nm-ville">Ville *</label>
-            <input type="text" id="nm-ville" name="ville" required aria-required="true" placeholder="Grand-Lancy">
+            <label for="nm-commentaire">Commentaire (optionnel)</label>
+            <textarea id="nm-commentaire" name="commentaire" rows="3" placeholder="Étage sans ascenseur, code d'accès, etc."></textarea>
           </div>
         </div>
 

@@ -157,8 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const prenom = document.getElementById('nm-prenom').value;
     const nom = document.getElementById('nm-nom').value;
     const tel = document.getElementById('nm-tel').value;
+    const adresse = document.getElementById('nm-adresse').value;
     const npa = document.getElementById('nm-npa').value;
     const ville = document.getElementById('nm-ville').value;
+    const commentaire = document.getElementById('nm-commentaire').value;
     const date = document.getElementById('nm-date').value;
     const creneau = document.getElementById('nm-creneau').value;
 
@@ -180,9 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
       + `=================================\n\n`
       + `Nom : ${prenom} ${nom}\n`
       + `Téléphone : ${tel}\n`
+      + `Adresse : ${adresse}\n`
       + `NPA / Ville : ${npa} ${ville}\n`
       + `Date souhaitée : ${date || 'non précisée'}\n`
-      + `Créneau : ${creneau}\n\n`
+      + `Créneau : ${creneau}\n`
+      + `Commentaire : ${commentaire || '—'}\n\n`
       + `PANIER :\n${cartDetail}\n\n`
       + `---\nEnvoyé depuis happymove-ge.ch/nettoyage-matelas-geneve/`;
 
