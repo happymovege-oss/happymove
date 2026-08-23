@@ -48,6 +48,15 @@
   color: var(--white);
 }
 
+.ne-hero-tagline {
+  font-family: var(--font-display, 'Lora', serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 10px;
+}
+
 .ne-hero-subtitle {
   font-size: 17px;
   color: rgba(255, 255, 255, 0.9);
