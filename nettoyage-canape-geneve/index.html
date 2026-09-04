@@ -104,6 +104,9 @@
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
 <header class="site-header" id="siteHeader">
+  <div class="nc-promo-bar" id="ncPromoBar" data-expires="2026-09-30">
+    🎉 Offre spéciale rentrée : <strong>-10%</strong> sur votre nettoyage de canapé, jusqu'au 30 septembre 2026
+  </div>
   <div class="bandeau-top">
     ✅ Devis gratuit en 24h&nbsp;&nbsp;·&nbsp;&nbsp;📱 Évaluation par WhatsApp&nbsp;&nbsp;·&nbsp;&nbsp;📍 Tout le canton de Genève
   </div>
@@ -154,8 +157,9 @@
           <span>Zéro supplément caché</span>
         </div>
         <div class="nc-hero-actions">
-          <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9" class="btn btn-primary" target="_blank" rel="noopener noreferrer">📅 Prendre RDV sur WhatsApp</a>
+          <a href="#reservation" class="btn btn-primary">📅 Réserver via le formulaire</a>
         </div>
+        <a href="https://wa.me/41782128252?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20le%20nettoyage%20de%20canap%C3%A9" class="nc-question-link" target="_blank" rel="noopener noreferrer">💬 Nous contacter sur WhatsApp</a>
       </div>
       <div class="nc-hero-image">
         <img src="../Images/canape-slide.webp" alt="Nettoyage de canapé à Genève — avant/après" loading="eager" width="1536" height="1024">
@@ -186,30 +190,43 @@
     <div class="container">
       <h2 class="nc-centered">Nos tarifs, sans surprise</h2>
 
-      <div class="nc-pricing-grid">
-        <div class="nc-price-card">
-          <h3>Canapé 2 places</h3>
-          <p class="nc-price-duration">~1h15</p>
-          <p class="nc-price-amount">dès 139 CHF</p>
-          <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9%202%20places" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Réserver</a>
+      <div class="nc-pricing-wrapper">
+        <button type="button" class="nc-pricing-arrow nc-pricing-arrow--left" id="nc-pricing-prev" aria-label="Tarif précédent">‹</button>
+        <div class="nc-pricing-grid" id="nc-pricing-grid">
+          <div class="nc-price-card" data-normal-price="139" data-discounted-price="125">
+            <h3>Canapé 2 places</h3>
+            <p class="nc-price-amount">
+              <s class="nc-price-strike" hidden></s>
+              <span class="nc-price-final">dès 139 CHF</span>
+            </p>
+            <span class="nc-price-promo-tag" hidden>-10% rentrée</span>
+            <a href="#reservation" class="btn btn-primary">Réserver</a>
+          </div>
+          <div class="nc-price-card nc-price-card--featured" data-normal-price="159" data-discounted-price="143">
+            <span class="nc-price-badge">Le plus demandé</span>
+            <h3>Canapé 3 places</h3>
+            <p class="nc-price-amount">
+              <s class="nc-price-strike" hidden></s>
+              <span class="nc-price-final">dès 159 CHF</span>
+            </p>
+            <span class="nc-price-promo-tag" hidden>-10% rentrée</span>
+            <a href="#reservation" class="btn btn-primary">Réserver</a>
+          </div>
+          <div class="nc-price-card" data-normal-price="199" data-discounted-price="179">
+            <h3>Canapé d'angle / 4-5 places</h3>
+            <p class="nc-price-amount">
+              <s class="nc-price-strike" hidden></s>
+              <span class="nc-price-final">dès 199 CHF</span>
+            </p>
+            <span class="nc-price-promo-tag" hidden>-10% rentrée</span>
+            <a href="#reservation" class="btn btn-primary">Réserver</a>
+          </div>
         </div>
-        <div class="nc-price-card nc-price-card--featured">
-          <span class="nc-price-badge">Le plus demandé</span>
-          <h3>Canapé 3 places</h3>
-          <p class="nc-price-duration">~1h30-1h45</p>
-          <p class="nc-price-amount">dès 159 CHF</p>
-          <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9%203%20places" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Réserver</a>
-        </div>
-        <div class="nc-price-card">
-          <h3>Canapé d'angle / 4-5 places</h3>
-          <p class="nc-price-duration">~2h-2h30</p>
-          <p class="nc-price-amount">dès 199 CHF</p>
-          <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9%20d%27angle" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Réserver</a>
-        </div>
+        <button type="button" class="nc-pricing-arrow nc-pricing-arrow--right" id="nc-pricing-next" aria-label="Tarif suivant">›</button>
       </div>
 
-      <p class="nc-price-note">+ Fauteuil assorti (~20 min) : +30 CHF</p>
-      <p class="nc-price-fine-print">Prix pour un canapé en état standard, tissu ou microfibre. Alcantara, taches importantes (urine, vomi, encre) ou canapé non déhoussable : devis confirmé sur photo par WhatsApp, sans supplément caché une fois le prix confirmé.</p>
+      <p class="nc-price-note">+ Fauteuil assorti : +30 CHF</p>
+      <p class="nc-price-fine-print">Prix pour un canapé en tissu, coton, lin, polyester, microfibre ou laine résistante à l'eau, en état standard. Taches importantes (urine, vomi, encre) ou canapé non déhoussable : devis confirmé sur photo par WhatsApp, sans supplément caché une fois le prix confirmé. Cuir, daim, soie, velours véritable et alcantara ne sont pas traités par injection-extraction — voir la section « Une méthode adaptée à chaque matière » ci-dessous.</p>
     </div>
   </section>
 
@@ -254,8 +271,8 @@
         <div>
           <h2>Comment ça marche</h2>
           <ol class="nc-steps">
-            <li>Vous nous contactez sur WhatsApp avec une photo de votre canapé</li>
-            <li>On vous confirme le prix exact en moins de 24h</li>
+            <li>Vous remplissez le formulaire — le prix s'affiche directement</li>
+            <li>On vous confirme votre créneau par téléphone</li>
             <li>On intervient chez vous sous 48h</li>
             <li>Vous payez une fois satisfait du résultat</li>
           </ol>
@@ -263,7 +280,7 @@
         <img src="../Images/%C3%A9quipe%20nettoyage%20canap%C3%A9.webp" alt="Équipe Happy Move en intervention à Genève" loading="lazy" width="500" height="500" class="nc-steps-image">
       </div>
       <div class="nc-cta-center">
-        <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Envoyer une photo sur WhatsApp</a>
+        <a href="#reservation" class="btn btn-primary">Remplir le formulaire</a>
       </div>
     </div>
   </section>
@@ -272,17 +289,9 @@
   <section class="nc-section nc-section-alt">
     <div class="container nc-narrow">
       <h2>Combien de temps avant de le réutiliser ?</h2>
-      <table class="nc-table">
-        <thead>
-          <tr><th>Format</th><th>Séchage estimé</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>2 places</td><td>2 à 4h</td></tr>
-          <tr><td>3 places</td><td>3 à 5h</td></tr>
-          <tr><td>Angle / 4-5 places</td><td>4 à 6h</td></tr>
-        </tbody>
-      </table>
-      <p class="nc-price-fine-print">Le temps de séchage varie selon la météo et l'aération de la pièce. Votre canapé reste utilisable rapidement.</p>
+      <p>Nous utilisons du matériel professionnel haut de gamme qui extrait un maximum d'humidité pendant le nettoyage — le temps de séchage est nettement réduit par rapport à une location grand public.</p>
+      <p>Comptez généralement 1 journée, selon le format, le tissu et l'aération de la pièce.</p>
+      <div class="nc-warning-note">⚠️ Ne vous asseyez surtout pas tant que le canapé est encore humide au toucher — laissez-le sécher complètement avant de le réutiliser.</div>
     </div>
   </section>
 
@@ -292,8 +301,31 @@
       <div class="nc-steps-grid">
         <div>
           <h2>Une méthode adaptée à chaque matière</h2>
-          <p><strong>Tissu et microfibre :</strong> injection-extraction en profondeur — un produit est injecté dans les fibres puis aspiré avec les salissures. Résultat visible immédiatement.</p>
-          <p><strong>Alcantara, velours, tissus délicats :</strong> traitement adapté pour préserver texture et couleurs.</p>
+          <p><strong>Injection-extraction :</strong> un produit est injecté dans les fibres puis aspiré avec les salissures. Résultat visible immédiatement. Cette méthode utilise de l'eau — elle ne convient pas à tous les textiles.</p>
+
+          <h3 class="nc-textile-heading nc-textile-heading--ok">✅ Compatibles (résistantes à l'eau)</h3>
+          <ul class="nc-textile-list">
+            <li>Coton</li>
+            <li>Lin traité</li>
+            <li>Polyester &amp; synthétiques</li>
+            <li>Microfibre</li>
+            <li>Mélange polyester/coton</li>
+            <li>Chenille synthétique</li>
+            <li>Velours synthétique*</li>
+            <li>Laine résistante à l'eau**</li>
+          </ul>
+          <p class="nc-textile-note">*Certains velours synthétiques marquent au passage de la buse — un test est toujours fait avant. **Lavage à l'eau froide uniquement, jamais au-delà de 40°C.</p>
+
+          <h3 class="nc-textile-heading nc-textile-heading--no">❌ Non traitées par injection-extraction</h3>
+          <ul class="nc-textile-list nc-textile-list--no">
+            <li>Soie</li>
+            <li>Velours véritable</li>
+            <li>Alcantara</li>
+            <li>Daim / nubuck</li>
+            <li>Cuir</li>
+            <li>Tissage main / jute</li>
+          </ul>
+          <p class="nc-textile-note">Ces matières nécessitent un traitement à sec ou un autre métier — l'eau y laisse des auréoles, des taches ou un risque de rétrécissement. Un doute sur votre matière ? Envoyez-nous une photo sur WhatsApp, on vous le dit clairement avant de venir.</p>
         </div>
         <img src="../Images/nettoyage%20en%20profondeur.webp" alt="Nettoyage en profondeur par injection-extraction" loading="lazy" width="500" height="500" class="nc-steps-image">
       </div>
@@ -337,7 +369,7 @@
       <p class="nc-quote">Louer une machine semble économique sur le papier. En pratique, le risque d'abîmer le tissu ou de mal sécher — avec de la moisissure qui se développe à l'intérieur du canapé — coûte souvent plus cher qu'un professionnel dès le départ.</p>
 
       <div class="nc-cta-center">
-        <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Réserver mon créneau</a>
+        <a href="#reservation" class="btn btn-primary">Réserver mon créneau</a>
       </div>
     </div>
   </section>
@@ -413,60 +445,125 @@
   <!-- ===== FORMULAIRE DE RÉSERVATION ===== -->
   <section class="nc-form-section" id="reservation">
     <div class="container nc-narrow">
-      <h2>Réserver via le formulaire</h2>
-      <p>Vous préférez ne pas passer par WhatsApp ? Laissez-nous vos coordonnées, nous confirmons votre créneau par téléphone.</p>
+      <h2>Composez votre réservation</h2>
+      <p>Le prix se calcule automatiquement selon vos choix. Confirmation par téléphone, sans engagement.</p>
+      <p class="nc-promo-note" id="ncPromoNote" data-expires="2026-09-30">🎉 <strong>Offre rentrée : -10%</strong> déduit automatiquement sur votre total, jusqu'au 30 septembre 2026.</p>
 
       <form id="nc-form" class="nc-form" novalidate>
-        <div class="nc-form-row">
-          <div class="form-group">
-            <label for="nc-nom">Nom complet *</label>
-            <input type="text" id="nc-nom" name="nom" required aria-required="true" placeholder="Marie Dupont">
-          </div>
-          <div class="form-group">
-            <label for="nc-tel">Téléphone *</label>
-            <input type="tel" id="nc-tel" name="tel" required aria-required="true" placeholder="078 000 00 00">
-          </div>
-        </div>
-        <div class="nc-form-row">
-          <div class="form-group">
-            <label for="nc-email">Email (optionnel)</label>
-            <input type="email" id="nc-email" name="email" placeholder="marie@exemple.ch">
-          </div>
-          <div class="form-group">
-            <label for="nc-format">Format du canapé *</label>
-            <select id="nc-format" name="format" required aria-required="true">
-              <option value="">Choisir…</option>
-              <option value="2 places">2 places</option>
-              <option value="3 places">3 places</option>
-              <option value="Angle / 4-5 places">Angle / 4-5 places</option>
-            </select>
+
+        <!-- 1. FORMAT -->
+        <div class="nc-config-block">
+          <h3><span class="nc-step-num">1</span> Format du canapé</h3>
+          <div class="nc-format-options">
+            <label class="nc-format-option">
+              <input type="radio" name="format" id="nc-format-2p" value="139" data-label="2 places" data-duration="75" checked>
+              <span class="nc-format-name">2 places</span>
+              <span class="nc-format-price"><s class="nc-format-price-strike" hidden></s><span class="nc-format-price-final">139 CHF</span></span>
+            </label>
+            <label class="nc-format-option">
+              <input type="radio" name="format" id="nc-format-3p" value="159" data-label="3 places" data-duration="98">
+              <span class="nc-format-name">3 places</span>
+              <span class="nc-format-price"><s class="nc-format-price-strike" hidden></s><span class="nc-format-price-final">159 CHF</span></span>
+            </label>
+            <label class="nc-format-option">
+              <input type="radio" name="format" id="nc-format-angle" value="199" data-label="Angle / 4-5 places" data-duration="135">
+              <span class="nc-format-name">Angle / 4-5 places</span>
+              <span class="nc-format-price"><s class="nc-format-price-strike" hidden></s><span class="nc-format-price-final">199 CHF</span></span>
+            </label>
           </div>
         </div>
-        <div class="form-group">
-          <label for="nc-adresse">Adresse *</label>
-          <input type="text" id="nc-adresse" name="adresse" required aria-required="true" placeholder="Rue et numéro">
+
+        <!-- 2. OPTIONS -->
+        <div class="nc-config-block">
+          <h3><span class="nc-step-num">2</span> Options</h3>
+          <label class="nc-checkbox-row">
+            <input type="checkbox" id="nc-fauteuil">
+            <span>Fauteuil assorti <strong>(+30 CHF)</strong></span>
+          </label>
+          <label class="nc-checkbox-row">
+            <input type="checkbox" id="nc-vapeur">
+            <span>Désinfection vapeur <strong>(+30 CHF)</strong></span>
+          </label>
         </div>
-        <div class="nc-form-row">
-          <div class="form-group">
-            <label for="nc-npa">Code postal *</label>
-            <input type="text" id="nc-npa" name="npa" required aria-required="true" placeholder="1212" inputmode="numeric">
+
+        <!-- RÉCAPITULATIF -->
+        <div class="nc-recap">
+          <div class="nc-recap-row nc-recap-savings" id="nc-savings-row" hidden>
+            <span>Prix normal</span>
+            <strong><s id="nc-normal-total">139 CHF</s></strong>
+          </div>
+          <div class="nc-recap-row nc-recap-total">
+            <span>Total <span class="nc-promo-badge" id="nc-promo-badge" hidden>-10% rentrée</span></span>
+            <strong id="nc-total">139 CHF</strong>
+          </div>
+        </div>
+
+        <!-- 3. RENDEZ-VOUS -->
+        <div class="nc-config-block">
+          <h3><span class="nc-step-num">3</span> Rendez-vous souhaité</h3>
+          <div class="nc-form-row">
+            <div class="form-group">
+              <label for="nc-date">Date (optionnel)</label>
+              <input type="date" id="nc-date" name="date">
+            </div>
+            <div class="form-group">
+              <label for="nc-creneau">Créneau préféré</label>
+              <select id="nc-creneau" name="creneau">
+                <option value="Matin">Matin</option>
+                <option value="Après-midi">Après-midi</option>
+                <option value="Soir">Soir</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. COORDONNÉES -->
+        <div class="nc-config-block">
+          <h3><span class="nc-step-num">4</span> Vos coordonnées</h3>
+          <div class="nc-form-row">
+            <div class="form-group">
+              <label for="nc-nom">Nom complet *</label>
+              <input type="text" id="nc-nom" name="nom" required aria-required="true" placeholder="Marie Dupont">
+            </div>
+            <div class="form-group">
+              <label for="nc-tel">Téléphone *</label>
+              <input type="tel" id="nc-tel" name="tel" required aria-required="true" placeholder="078 000 00 00">
+            </div>
+          </div>
+          <div class="nc-form-row">
+            <div class="form-group">
+              <label for="nc-email">Email (optionnel)</label>
+              <input type="email" id="nc-email" name="email" placeholder="marie@exemple.ch">
+            </div>
+            <div class="form-group">
+              <label for="nc-adresse">Adresse *</label>
+              <input type="text" id="nc-adresse" name="adresse" required aria-required="true" placeholder="Rue et numéro">
+            </div>
+          </div>
+          <div class="nc-form-row">
+            <div class="form-group">
+              <label for="nc-npa">Code postal *</label>
+              <input type="text" id="nc-npa" name="npa" required aria-required="true" placeholder="1212" inputmode="numeric">
+            </div>
+            <div class="form-group">
+              <label for="nc-ville">Ville *</label>
+              <input type="text" id="nc-ville" name="ville" required aria-required="true" placeholder="Grand-Lancy">
+            </div>
           </div>
           <div class="form-group">
-            <label for="nc-ville">Ville *</label>
-            <input type="text" id="nc-ville" name="ville" required aria-required="true" placeholder="Grand-Lancy">
+            <label for="nc-message">Commentaire (optionnel)</label>
+            <textarea id="nc-message" name="message" rows="3" placeholder="Taches particulières, étage sans ascenseur, etc."></textarea>
           </div>
         </div>
-        <div class="form-group">
-          <label for="nc-date">Date souhaitée (optionnel)</label>
-          <input type="date" id="nc-date" name="date">
-        </div>
-        <div class="form-group">
-          <label for="nc-message">Commentaire (optionnel)</label>
-          <textarea id="nc-message" name="message" rows="3" placeholder="Taches particulières, étage sans ascenseur, etc."></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Envoyer ma demande</button>
+
+        <button type="submit" class="btn-submit">Réserver</button>
         <p class="form-note">📞 Confirmation par téléphone · ✓ Sans engagement</p>
       </form>
+
+      <div class="nc-whatsapp-links">
+        <a href="https://wa.me/41782128252?text=Bonjour%2C%20voici%20une%20photo%20de%20mon%20canap%C3%A9%20pour%20un%20devis" class="nc-question-link" target="_blank" rel="noopener noreferrer">📸 Envoyer une photo sur WhatsApp</a>
+        <a href="https://wa.me/41782128252?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20le%20nettoyage%20de%20canap%C3%A9" class="nc-question-link" target="_blank" rel="noopener noreferrer">💬 J'ai une question, WhatsApp</a>
+      </div>
 
       <p class="nc-form-contact-info">078 212 82 52 · info@happymove-ge.ch · happymove-ge.ch</p>
     </div>
@@ -482,7 +579,7 @@
         <span>Sous 48h</span>
       </div>
       <div class="nc-hero-actions nc-cta-final-actions">
-        <a href="https://wa.me/41782128252?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20nettoyage%20de%20canap%C3%A9" class="btn btn-white" target="_blank" rel="noopener noreferrer">📅 Prendre RDV sur WhatsApp</a>
+        <a href="#reservation" class="btn btn-white">📅 Réserver via le formulaire</a>
       </div>
     </div>
   </section>
