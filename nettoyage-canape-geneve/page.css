@@ -6,7 +6,7 @@
   max-width: 760px;
 }
 
-/* ===== Offre rentrée ===== */
+/* ===== Offre de bienvenue ===== */
 .nc-promo-bar {
   background: var(--terracotta);
   color: var(--white);
@@ -21,8 +21,8 @@
 }
 
 .nc-promo-note {
-  background: #FBEDE7;
-  border: 1px solid var(--terracotta);
+  background: var(--green-light);
+  border: 1px solid var(--green-forest);
   border-radius: 8px;
   padding: 10px 16px;
   text-align: center;
@@ -277,37 +277,6 @@
   font-weight: 700;
   color: var(--green-forest);
   margin-bottom: 6px;
-}
-
-.nc-price-strike {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 2px;
-}
-
-.nc-price-strike[hidden] {
-  display: none;
-}
-
-.nc-price-final {
-  display: block;
-}
-
-.nc-price-promo-tag {
-  display: inline-block;
-  background: var(--terracotta);
-  color: var(--white);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 2px 10px;
-  border-radius: 10px;
-  margin-bottom: 14px;
-}
-
-.nc-price-promo-tag[hidden] {
-  display: none;
 }
 
 .nc-price-note {
@@ -848,24 +817,10 @@
 }
 
 .nc-format-price {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   font-family: 'Lora', serif;
   font-weight: 700;
   color: var(--green-forest);
 }
-
-.nc-format-price-strike {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.nc-format-price-strike[hidden] {
-  display: none;
-}
-
 
 .nc-checkbox-row {
   display: flex;
@@ -919,6 +874,79 @@
   font-family: 'Lora', serif;
   font-size: 22px;
   color: var(--green-forest);
+}
+
+.nc-promo-code {
+  padding-top: 14px;
+  border-top: 1px dashed rgba(45, 107, 80, 0.25);
+}
+
+.nc-promo-code label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.nc-promo-code-row {
+  display: flex;
+  gap: 8px;
+}
+
+.nc-promo-code-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--dark);
+  text-transform: uppercase;
+}
+
+.nc-promo-code-row input:focus {
+  outline: none;
+  border-color: var(--green-forest);
+  box-shadow: 0 0 0 3px rgba(45, 107, 80, 0.15);
+}
+
+.nc-promo-apply-btn {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  background: var(--white);
+  color: var(--green-forest);
+  border: 1.5px solid var(--green-forest);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito Sans', sans-serif;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nc-promo-apply-btn:hover {
+  background: var(--green-forest);
+  color: var(--white);
+}
+
+.nc-promo-feedback {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nc-promo-feedback[hidden] {
+  display: none;
+}
+
+.nc-promo-feedback--success {
+  color: var(--green-forest-dark);
+}
+
+.nc-promo-feedback--error {
+  color: #c0392b;
 }
 
 .nc-whatsapp-links {

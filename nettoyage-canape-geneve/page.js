@@ -37,72 +37,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ----- Offre rentrée -10% (expire automatiquement) -----
-  function isPromoActive(el) {
-    if (!el || !el.dataset.expires) return false;
-    const expiry = new Date(`${el.dataset.expires}T23:59:59`);
-    return new Date() <= expiry;
-  }
-
+  // ----- Bannière offre de bienvenue (annonce, code à saisir dans le formulaire) -----
   const promoBar = document.getElementById('ncPromoBar');
-  const promoActive = isPromoActive(promoBar);
-  if (promoBar) promoBar.hidden = !promoActive;
+  if (promoBar) promoBar.hidden = false;
 
   const promoNote = document.getElementById('ncPromoNote');
-  if (promoNote) promoNote.hidden = !promoActive;
-
-  if (promoActive) {
-    document.querySelectorAll('.nc-price-card[data-normal-price]').forEach((card) => {
-      const normal = card.dataset.normalPrice;
-      const discounted = card.dataset.discountedPrice;
-      const strike = card.querySelector('.nc-price-strike');
-      const final = card.querySelector('.nc-price-final');
-      const tag = card.querySelector('.nc-price-promo-tag');
-      strike.textContent = `${normal} CHF`;
-      strike.hidden = false;
-      final.textContent = `dès ${discounted} CHF`;
-      tag.hidden = false;
-    });
-
-    document.querySelectorAll('input[name="format"]').forEach((input) => {
-      const normal = Number(input.value);
-      const discounted = Math.round(normal * 0.9);
-      const option = input.closest('.nc-format-option');
-      const strike = option.querySelector('.nc-format-price-strike');
-      const final = option.querySelector('.nc-format-price-final');
-      strike.textContent = `${normal} CHF`;
-      strike.hidden = false;
-      final.textContent = `${discounted} CHF`;
-    });
-  }
+  if (promoNote) promoNote.hidden = false;
 
   const form = document.getElementById('nc-form');
   if (!form) return;
 
   const WEB3FORMS_ACCESS_KEY = '1033b124-f3fc-49d5-b1d1-64ad5f9e429b';
 
+  // Codes promo valides pour cette page
+  const PROMO_CODES = {
+    BIENVENUE10: { discount: 0.10, label: 'BIENVENUE10' },
+  };
+
   // ----- Configurateur -----
   const formatInputs = document.querySelectorAll('input[name="format"]');
-  const fauteuilCheckbox = document.getElementById('nc-fauteuil');
   const vapeurCheckbox = document.getElementById('nc-vapeur');
   const totalEl = document.getElementById('nc-total');
   const normalTotalEl = document.getElementById('nc-normal-total');
   const savingsRow = document.getElementById('nc-savings-row');
   const promoBadge = document.getElementById('nc-promo-badge');
+  const promoInput = document.getElementById('nc-promo-input');
+  const promoApplyBtn = document.getElementById('nc-promo-apply');
+  const promoFeedback = document.getElementById('nc-promo-feedback');
+
+  let appliedPromo = null;
 
   function recalculate() {
     const selected = document.querySelector('input[name="format"]:checked');
     if (!selected) return;
 
     let normalTotal = Number(selected.value);
-    if (fauteuilCheckbox.checked) normalTotal += 30;
     if (vapeurCheckbox.checked) normalTotal += 30;
 
-    if (promoActive) {
-      const discountedTotal = Math.round(normalTotal * 0.9);
+    if (appliedPromo) {
+      const discountedTotal = Math.round(normalTotal * (1 - appliedPromo.discount));
       normalTotalEl.textContent = `${normalTotal} CHF`;
       totalEl.textContent = `${discountedTotal} CHF`;
       savingsRow.hidden = false;
+      promoBadge.textContent = `-${Math.round(appliedPromo.discount * 100)}% ${appliedPromo.label}`;
       promoBadge.hidden = false;
     } else {
       totalEl.textContent = `${normalTotal} CHF`;
@@ -111,8 +88,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function showPromoFeedback(message, isSuccess) {
+    promoFeedback.textContent = message;
+    promoFeedback.hidden = false;
+    promoFeedback.classList.toggle('nc-promo-feedback--success', isSuccess);
+    promoFeedback.classList.toggle('nc-promo-feedback--error', !isSuccess);
+  }
+
+  if (promoApplyBtn) {
+    promoApplyBtn.addEventListener('click', () => {
+      const code = promoInput.value.trim().toUpperCase();
+      if (!code) {
+        showPromoFeedback('Entrez un code promo.', false);
+        return;
+      }
+      const match = PROMO_CODES[code];
+      if (match) {
+        appliedPromo = match;
+        showPromoFeedback(`✓ Code ${match.label} appliqué : -${Math.round(match.discount * 100)}%`, true);
+      } else {
+        appliedPromo = null;
+        showPromoFeedback('Code promo invalide.', false);
+      }
+      recalculate();
+    });
+
+    promoInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        promoApplyBtn.click();
+      }
+    });
+  }
+
   formatInputs.forEach((input) => input.addEventListener('change', recalculate));
-  [fauteuilCheckbox, vapeurCheckbox].forEach((el) => el.addEventListener('change', recalculate));
+  vapeurCheckbox.addEventListener('change', recalculate);
   recalculate();
 
   // Date min = aujourd'hui
@@ -147,11 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = document.getElementById('nc-message').value;
 
     let cartDetail = `Format du canapé : ${selectedFormat.dataset.label} (${selectedFormat.value} CHF)\n`;
-    cartDetail += `Fauteuil assorti : ${fauteuilCheckbox.checked ? 'Oui (+30 CHF)' : 'Non'}\n`;
     cartDetail += `Désinfection vapeur : ${vapeurCheckbox.checked ? 'Oui (+30 CHF)' : 'Non'}\n`;
-    if (promoActive) {
+    if (appliedPromo) {
       cartDetail += `Prix normal : ${normalTotalEl.textContent}\n`;
-      cartDetail += `Offre rentrée -10% appliquée\n`;
+      cartDetail += `Code promo appliqué : ${appliedPromo.label} (-${Math.round(appliedPromo.discount * 100)}%)\n`;
+    } else {
+      cartDetail += `Code promo : aucun\n`;
     }
     cartDetail += `Total : ${totalEl.textContent}`;
 
