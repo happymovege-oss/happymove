@@ -229,7 +229,8 @@
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', { send_to: 'AW-10792863914/DoGjCODZhtYcEKqRuJoo' });
       }
-      if (typeof fbq === 'function') {
+      // Fin de bail : volontairement exclu du suivi Meta (lead non issu de Meta)
+      if (typeof fbq === 'function' && service !== 'nfb') {
         fbq('track', 'Lead');
       }
 

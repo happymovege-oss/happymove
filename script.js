@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (!link || typeof fbq !== 'function') return;
+    // Page fin de bail : exclue du suivi Meta
+    if (location.pathname.startsWith('/nettoyage-fin-de-bail-geneve')) return;
 
     if (link.href.startsWith('tel:') || link.href.includes('wa.me')) {
       fbq('track', 'Contact');
