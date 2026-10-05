@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gtag('event', 'conversion', { send_to: 'AW-10792863914/DoGjCODZhtYcEKqRuJoo' });
       }
       if (typeof fbq === 'function') {
-        fbq('track', 'Lead');
+        fbq('track', 'Lead', { content_name: 'Nettoyage canapé' });
       }
 
       this.innerHTML = `
