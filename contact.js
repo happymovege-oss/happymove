@@ -229,6 +229,9 @@
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', { send_to: 'AW-10792863914/DoGjCODZhtYcEKqRuJoo' });
       }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
 
       showPopup(serviceName);
 

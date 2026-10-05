@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', { send_to: 'AW-10792863914/DoGjCODZhtYcEKqRuJoo' });
         }
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead');
+        }
 
         this.innerHTML = `
         <div style="text-align:center;padding:32px 0;">
