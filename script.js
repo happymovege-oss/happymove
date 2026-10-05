@@ -50,4 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
       gtag('event', 'conversion', { send_to: 'AW-10792863914/6zW9CKOIi9YcEKqRuJoo' });
     }
   });
+
+  // Suivi Meta Pixel : événement Contact au clic téléphone / WhatsApp
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link || typeof fbq !== 'function') return;
+
+    if (link.href.startsWith('tel:') || link.href.includes('wa.me')) {
+      fbq('track', 'Contact');
+    }
+  });
 });
