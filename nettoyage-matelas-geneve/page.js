@@ -27,17 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ----- Règle de planning + calendrier coloré (règles et calendrier : ../planning.js) -----
   const planning = window.HMPlanning || null;
   const dateInput = document.getElementById('nm-date');
-  const dateHint = document.getElementById('nm-date-hint');
   const dateFeedback = document.getElementById('nm-date-feedback');
   const dateCalendar = document.getElementById('nm-calendar');
 
   if (planning && dateInput) {
-    const nextAvailable = planning.nextAvailable();
     dateInput.min = planning.toISO(planning.earliest());
-    if (dateHint) {
-      dateHint.textContent =
-        `Interventions les mardi, mercredi, jeudi et samedi — prochain créneau : ${planning.formatDay(nextAvailable)}.`;
-    }
   }
 
   // Retourne true si la date saisie est valide (ou vide : le champ est optionnel)
