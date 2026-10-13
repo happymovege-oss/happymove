@@ -125,11 +125,66 @@ document.addEventListener('DOMContentLoaded', () => {
   vapeurCheckbox.addEventListener('change', recalculate);
   recalculate();
 
-  // Date min = aujourd'hui
+  // ----- Règle de planning -----
+  // On se considère booké les 2 jours qui suivent la date du jour (1er créneau : J+3),
+  // interventions uniquement mardi, mercredi, jeudi et samedi, et pas les jours de fins de bail.
+  const MIN_LEAD_DAYS = 3;
+  const OPEN_WEEKDAYS = [2, 3, 4, 6]; // 0 = dimanche … 6 = samedi
+  const BLOCKED_DAYS_OF_MONTH = [13, 14, 15, 29, 30, 31];
+
   const dateInput = document.getElementById('nc-date');
-  if (dateInput) {
-    dateInput.min = new Date().toISOString().split('T')[0];
+  const dateHint = document.getElementById('nc-date-hint');
+  const dateFeedback = document.getElementById('nc-date-feedback');
+
+  const toISODate = (d) => {
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  };
+  const fromISODate = (iso) => {
+    const [y, m, d] = iso.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  };
+  const addDays = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  const isOpenDay = (d) =>
+    OPEN_WEEKDAYS.includes(d.getDay()) && !BLOCKED_DAYS_OF_MONTH.includes(d.getDate());
+  const formatDay = (d) =>
+    d.toLocaleDateString('fr-CH', { weekday: 'long', day: 'numeric', month: 'long' });
+
+  const today = new Date();
+  const earliest = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate()), MIN_LEAD_DAYS);
+  let nextAvailable = earliest;
+  while (!isOpenDay(nextAvailable)) nextAvailable = addDays(nextAvailable, 1);
+
+  if (dateInput) dateInput.min = toISODate(earliest);
+  if (dateHint) {
+    dateHint.textContent =
+      `Interventions les mardi, mercredi, jeudi et samedi — prochain créneau : ${formatDay(nextAvailable)}.`;
   }
+
+  // Retourne true si la date saisie est valide (ou vide : le champ est optionnel)
+  function validateDate() {
+    if (!dateInput || !dateFeedback) return true;
+    dateFeedback.hidden = true;
+    if (!dateInput.value) return true;
+
+    const chosen = fromISODate(dateInput.value);
+    let reason = '';
+    if (chosen < earliest) {
+      reason = `Nous planifions avec ${MIN_LEAD_DAYS} jours d'avance minimum.`;
+    } else if (!OPEN_WEEKDAYS.includes(chosen.getDay())) {
+      reason = 'Nous intervenons uniquement les mardi, mercredi, jeudi et samedi.';
+    } else if (BLOCKED_DAYS_OF_MONTH.includes(chosen.getDate())) {
+      reason = 'Nous sommes complets à cette date.';
+    }
+    if (!reason) return true;
+
+    dateFeedback.textContent = `${reason} Prochain créneau : ${formatDay(nextAvailable)}.`;
+    dateFeedback.hidden = false;
+    dateInput.value = '';
+    return false;
+  }
+
+  if (dateInput) dateInput.addEventListener('change', validateDate);
 
   // ----- Soumission -----
   form.addEventListener('submit', async function (e) {
@@ -144,6 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     if (!valid) return;
+    if (!validateDate()) {
+      dateInput.focus();
+      return;
+    }
 
     const selectedFormat = document.querySelector('input[name="format"]:checked');
     const nom = document.getElementById('nc-nom').value;
