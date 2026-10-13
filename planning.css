@@ -1,0 +1,126 @@
+/* Calendrier de réservation — vert = disponible, rouge = indisponible
+   (partagé par les pages nettoyage canapé et nettoyage matelas) */
+
+.hm-cal {
+  margin-top: 10px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  max-width: 360px;
+}
+
+.hm-cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.hm-cal-title {
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #2C2C2A;
+}
+
+.hm-cal-nav {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  background: #fff;
+  color: #2D6B50;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hm-cal-nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.hm-cal-weekdays,
+.hm-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.hm-cal-weekdays span {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #5F5E5A;
+  padding-bottom: 4px;
+}
+
+.hm-cal-day {
+  aspect-ratio: 1;
+  min-height: 36px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  cursor: default;
+}
+
+.hm-cal-day--free {
+  background: #e3f1e6;
+  border-color: #2D6B50;
+  color: #1f4d3a;
+  cursor: pointer;
+}
+
+.hm-cal-day--free:hover {
+  background: #cfe8d5;
+}
+
+.hm-cal-day--free.hm-cal-day--selected {
+  background: #2D6B50;
+  color: #fff;
+}
+
+.hm-cal-day--busy {
+  background: #fbe4e1;
+  border-color: #e9b4ad;
+  color: #b3261e;
+}
+
+.hm-cal-day--past {
+  background: #f4f4f2;
+  color: #b5b5b0;
+  font-weight: 400;
+}
+
+.hm-cal-day--today {
+  box-shadow: 0 0 0 2px #C8A96A inset;
+}
+
+.hm-cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #5F5E5A;
+}
+
+.hm-cal-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+.hm-cal-dot--free {
+  background: #2D6B50;
+}
+
+.hm-cal-dot--busy {
+  background: #e05252;
+}

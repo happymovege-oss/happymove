@@ -125,66 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
   vapeurCheckbox.addEventListener('change', recalculate);
   recalculate();
 
-  // ----- Règle de planning -----
-  // On se considère booké les 2 jours qui suivent la date du jour (1er créneau : J+3),
-  // interventions uniquement mardi, mercredi, jeudi et samedi, et pas les jours de fins de bail.
-  const MIN_LEAD_DAYS = 3;
-  const OPEN_WEEKDAYS = [2, 3, 4, 6]; // 0 = dimanche … 6 = samedi
-  const BLOCKED_DAYS_OF_MONTH = [13, 14, 15, 29, 30, 31];
-
+  // ----- Règle de planning + calendrier coloré (règles et calendrier : ../planning.js) -----
+  const planning = window.HMPlanning || null;
   const dateInput = document.getElementById('nc-date');
   const dateHint = document.getElementById('nc-date-hint');
   const dateFeedback = document.getElementById('nc-date-feedback');
+  const dateCalendar = document.getElementById('nc-calendar');
 
-  const toISODate = (d) => {
-    const pad = (n) => String(n).padStart(2, '0');
-    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-  };
-  const fromISODate = (iso) => {
-    const [y, m, d] = iso.split('-').map(Number);
-    return new Date(y, m - 1, d);
-  };
-  const addDays = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
-  const isOpenDay = (d) =>
-    OPEN_WEEKDAYS.includes(d.getDay()) && !BLOCKED_DAYS_OF_MONTH.includes(d.getDate());
-  const formatDay = (d) =>
-    d.toLocaleDateString('fr-CH', { weekday: 'long', day: 'numeric', month: 'long' });
-
-  const today = new Date();
-  const earliest = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate()), MIN_LEAD_DAYS);
-  let nextAvailable = earliest;
-  while (!isOpenDay(nextAvailable)) nextAvailable = addDays(nextAvailable, 1);
-
-  if (dateInput) dateInput.min = toISODate(earliest);
-  if (dateHint) {
-    dateHint.textContent =
-      `Interventions les mardi, mercredi, jeudi et samedi — prochain créneau : ${formatDay(nextAvailable)}.`;
+  if (planning && dateInput) {
+    const nextAvailable = planning.nextAvailable();
+    dateInput.min = planning.toISO(planning.earliest());
+    if (dateHint) {
+      dateHint.textContent =
+        `Interventions les mardi, mercredi, jeudi et samedi — prochain créneau : ${planning.formatDay(nextAvailable)}.`;
+    }
   }
 
   // Retourne true si la date saisie est valide (ou vide : le champ est optionnel)
   function validateDate() {
-    if (!dateInput || !dateFeedback) return true;
+    if (!planning || !dateInput || !dateFeedback) return true;
     dateFeedback.hidden = true;
     if (!dateInput.value) return true;
 
-    const chosen = fromISODate(dateInput.value);
-    let reason = '';
-    if (chosen < earliest) {
-      reason = `Nous planifions avec ${MIN_LEAD_DAYS} jours d'avance minimum.`;
-    } else if (!OPEN_WEEKDAYS.includes(chosen.getDay())) {
-      reason = 'Nous intervenons uniquement les mardi, mercredi, jeudi et samedi.';
-    } else if (BLOCKED_DAYS_OF_MONTH.includes(chosen.getDate())) {
-      reason = 'Nous sommes complets à cette date.';
-    }
+    const reason = planning.reason(planning.fromISO(dateInput.value));
     if (!reason) return true;
 
-    dateFeedback.textContent = `${reason} Prochain créneau : ${formatDay(nextAvailable)}.`;
+    dateFeedback.textContent = `${reason} Prochain créneau : ${planning.formatDay(planning.nextAvailable())}.`;
     dateFeedback.hidden = false;
     dateInput.value = '';
+    dateInput.dispatchEvent(new Event('hm-sync'));
     return false;
   }
 
-  if (dateInput) dateInput.addEventListener('change', validateDate);
+  if (dateInput) {
+    dateInput.addEventListener('change', validateDate);
+    if (planning) planning.mountCalendar(dateInput, dateCalendar);
+  }
 
   // ----- Soumission -----
   form.addEventListener('submit', async function (e) {
