@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!link || typeof fbq !== 'function') return;
     // Page fin de bail : exclue du suivi Meta
     if (location.pathname.startsWith('/nettoyage-fin-de-bail-geneve')) return;
+    // Pages canapé et matelas : Contact envoyé par leur page.js (avec content_name et method)
+    if (/^\/nettoyage-(canape|matelas)-geneve/.test(location.pathname)) return;
 
     if (link.href.startsWith('tel:') || link.href.includes('wa.me')) {
       fbq('track', 'Contact');
