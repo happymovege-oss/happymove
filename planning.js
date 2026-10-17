@@ -24,8 +24,21 @@
     d.toLocaleDateString('fr-CH', { weekday: 'long', day: 'numeric', month: 'long' });
 
   const earliest = (now) => addDays(startOfDay(now || new Date()), RULES.minLeadDays);
+  // Dates marquées complètes, par service (format AAAA-MM-JJ) — à mettre à jour au fil des réservations
+  const FULL_DATES = {
+    canape: ['2026-10-20', '2026-10-24'],
+    matelas: [],
+  };
+  let currentService = null; // défini par la page via HMPlanning.setService()
+  const setService = (name) => {
+    currentService = name;
+  };
+  const isFull = (d) => (FULL_DATES[currentService] || []).includes(toISO(d));
+
   const isOpenDay = (d) =>
-    RULES.openWeekdays.includes(d.getDay()) && !RULES.blockedDaysOfMonth.includes(d.getDate());
+    RULES.openWeekdays.includes(d.getDay()) &&
+    !RULES.blockedDaysOfMonth.includes(d.getDate()) &&
+    !isFull(d);
   const isAvailable = (d, now) => d >= earliest(now) && isOpenDay(d);
 
   function nextAvailable(now) {
@@ -40,7 +53,9 @@
     if (!RULES.openWeekdays.includes(d.getDay())) {
       return 'Nous intervenons uniquement les mardi, mercredi, jeudi et samedi.';
     }
-    if (RULES.blockedDaysOfMonth.includes(d.getDate())) return 'Nous sommes complets à cette date.';
+    if (RULES.blockedDaysOfMonth.includes(d.getDate()) || isFull(d)) {
+      return 'Nous sommes complets à cette date.';
+    }
     return '';
   }
 
@@ -135,6 +150,7 @@
 
   window.HMPlanning = {
     RULES,
+    setService,
     toISO,
     fromISO,
     earliest,

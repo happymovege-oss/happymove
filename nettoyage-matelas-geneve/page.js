@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ----- Règle de planning + calendrier coloré (règles et calendrier : ../planning.js) -----
   const planning = window.HMPlanning || null;
+  if (planning) planning.setService('matelas');
   const dateInput = document.getElementById('nm-date');
   const dateFeedback = document.getElementById('nm-date-feedback');
   const dateCalendar = document.getElementById('nm-calendar');
