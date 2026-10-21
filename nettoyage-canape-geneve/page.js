@@ -48,8 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Le Contact global de ../script.js est désactivé sur cette page pour éviter un doublon.
   if (location.pathname.startsWith('/nettoyage-canape-geneve')) {
     const CONTACT_NAME = 'Nettoyage canapé';
-    const WA_PREFILL =
-      "Bonjour 😊 J'ai vu votre annonce pour le nettoyage de canapé à domicile et ça m'intéresse beaucoup ! Pourriez-vous me dire quand vous seriez disponibles ? Merci d'avance !";
+    const WA_PREFILL = [
+      'Bonjour ! 👋',
+      'Je souhaite faire nettoyer mon canapé et profiter de l\'offre -10 % sur mon 1er nettoyage.',
+      '',
+      '🛋️ Format : ___ places / angle',
+      '📍 Commune : ___',
+      '📅 Date souhaitée : ___',
+      '',
+      'Je vous envoie une photo juste après 📸',
+    ].join('\n');
     const isWhatsApp = (href) => href.includes('wa.me') || href.includes('api.whatsapp.com');
 
     document.querySelectorAll('a[href]').forEach((link) => {
