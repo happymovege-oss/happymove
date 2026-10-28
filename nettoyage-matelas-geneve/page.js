@@ -2,35 +2,12 @@
 // (header/burger déjà gérés par ../script.js)
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ----- Meta Contact (clics WhatsApp / téléphone) + message WhatsApp prérempli — cette page uniquement -----
+  // ----- Meta Contact (clics WhatsApp / téléphone) — cette page uniquement -----
   // Le Contact global de ../script.js est désactivé sur cette page pour éviter un doublon.
+  // Les messages WhatsApp préremplis sont directement dans les liens de index.html.
   if (location.pathname.startsWith('/nettoyage-matelas-geneve')) {
     const CONTACT_NAME = 'Nettoyage matelas';
-    const WA_PREFILL = [
-      'Bonjour ! 👋',
-      'Je souhaite faire nettoyer mon matelas.',
-      '',
-      '🛏️ Nombre de matelas : ___ (1 place / 2 places)',
-      '📍 Commune : ___',
-      '📅 Date souhaitée : ___',
-      '',
-      'Je vous envoie une photo juste après 📸',
-    ].join('\n');
     const isWhatsApp = (href) => href.includes('wa.me') || href.includes('api.whatsapp.com');
-
-    document.querySelectorAll('a[href]').forEach((link) => {
-      const href = link.getAttribute('href');
-      if (!isWhatsApp(href)) return;
-      const current = decodeURIComponent((href.match(/[?&]text=([^&]*)/) || [])[1] || '');
-      if (/photo/i.test(current)) return; // lien « photo » : message d'origine conservé
-      const param = 'text=' + encodeURIComponent(WA_PREFILL);
-      link.setAttribute(
-        'href',
-        /[?&]text=/.test(href)
-          ? href.replace(/([?&])text=[^&]*/, '$1' + param)
-          : href + (href.includes('?') ? '&' : '?') + param
-      );
-    });
 
     document.addEventListener('click', (e) => {
       const link = e.target.closest('a[href]');
